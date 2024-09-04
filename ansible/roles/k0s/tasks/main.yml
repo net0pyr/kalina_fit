@@ -1,0 +1,20 @@
+- name: Stop k0s service
+  ansible.builtin.shell: k0s stop
+  ignore_errors: yes
+
+- name: Reset k0s cluster
+  ansible.builtin.shell: k0s reset
+  ignore_errors: yes
+
+- name: Download and install k0s
+  ansible.builtin.shell: curl --proto '=https' --tlsv1.2 -sSf https://get.k0s.sh | sh
+
+- name: Install k0s controller in single mode
+  ansible.builtin.shell: k0s install controller --single
+
+- name: Start k0s service
+  ansible.builtin.shell: k0s start
+
+- name: Export kubeconfig to ~/.kube/config
+  ansible.builtin.shell: k0s kubeconfig admin > ~/.kube/config
+

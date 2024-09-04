@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "/home/net0pyr/kalina/kalina_frontend/linux",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "ansible.python.interpreterPath": "/bin/python3"
+}

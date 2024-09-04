@@ -1,0 +1,7 @@
+- name: Run services
+  hosts: kalina
+  become: true
+  roles:
+    # - docker
+    - k0s
+    - deploy

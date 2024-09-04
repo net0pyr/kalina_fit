@@ -1,0 +1,24 @@
+- name: Copy Kubernetes manifests to the server
+  copy:
+    src: ../../../k8s-manifests/
+    dest: /tmp/k8s-manifests/
+    mode: 0644
+
+- name: Apply config-map
+  command: k0s kubectl apply -f /tmp/k8s-manifests/config-map.yml
+
+- name: Apply persisten-volume
+  command: k0s kubectl apply -f /tmp/k8s-manifests/persistent-volume.yml
+
+- name: Apply persisten-volume-claim
+  command: k0s kubectl apply -f /tmp/k8s-manifests/persistent-volume-claim.yml
+
+- name: Apply deployments
+  command: k0s kubectl apply -f /tmp/k8s-manifests/deployments.yml
+
+- name: Apply services
+  command: k0s kubectl apply -f /tmp/k8s-manifests/services.yml
+  ignore_errors: true
+
+- name: Apply services
+  command: k0s kubectl apply -f /tmp/k8s-manifests/services.yml
